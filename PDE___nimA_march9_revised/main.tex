@@ -1,0 +1,138 @@
+\documentclass[final, 3p, 11pt]{elsarticle}
+% \documentclass[final,3p,times]{elsarticle}
+% \documentclass[final,5p,times]{elsarticle}
+% \documentclass[review]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+%% our imported packages
+% \usepackage{siunitx} % breaks due to overlap of custom commands
+\usepackage[version=4]{mhchem}
+\usepackage{makecell}
+\usepackage{orcidlink} %for orcid id and link
+\usepackage{multirow}
+\usepackage{enumitem}
+% \usepackage{gensymb}
+\usepackage{nicefrac}
+\usepackage{bm}
+% \usepackage[normalem]{ulem} % for strikeout
+
+
+%%% Title pages and stuff %%%
+\journal{Nuclear Instruments and Methods in Physics Research - section A}
+
+\begin{document}
+\input{newCommands}
+\begin{frontmatter}
+
+\title{Demonstrating a broadband Photon Detection Efficiency model on VUV sensitive Silicon Photomultipliers}
+% could write mapping, parameterizing, etc
+
+
+\author[queens]{Austin de St Croix\corref{cor1}\orcidlink{0000-0002-6517-420X}}
+\cortext[cor1]{Corresponding Author}
+\ead{austindestecroix@gmail.com}
+
+\author[triumf, queens]{Harry Lewis} %% king data-taker, writing
+\author[triumf]{Kurtis Raymond} %% modelling, initial work
+\author[triumf]{Fabrice Retière} %% bossman
+\author[triumf]{Maia Henriksson-Ward} %% MESS, data taking, automotion
+\author[princeton]{Giacomo Gallina} %% modeling
+\author[triumf, queens]{Nicholas Morrison} %% vera and MESS
+\author[triumf]{Aileen Zhang} %% VERA, data-taking
+
+%% other lab people 
+
+\affiliation[queens]{organization={Department of Physics, Engineering Physics and Astronomy, Queen's University},
+            addressline={64 Bader Lane},
+            city={Kingston},
+            postcode={K7L 3N6},
+            state={Ontario},
+            country={Canada}
+}
+\affiliation[triumf]{organization={TRIUMF},
+            addressline={4004 Wesbrook Mall},
+            city={Vancouver},
+            postcode={V6T 2A3},
+            state={British Columbia},
+            country={Canada}
+}
+\affiliation[sfu]{organization={Department of Physics, Simon Fraser University},
+            addressline={8888 University Drive},
+            city={Burnaby},
+            postcode={V5A 1S6},
+            state={British Columbia},
+            country={Canada}
+}
+\affiliation[princeton]{organization={Department of Physics, Princeton University},
+            addressline={Jadwin Hall, Washington Road},
+            city={Princeton},
+            postcode={08544},
+            state={New Jersey},
+            country={USA}
+}
+            
+
+\input{abstract}
+% \input{absGraphical}
+
+%% Research highlights
+% \begin{highlights}
+% \item Fit analytic PDE model to broadband data for two VUV sensitive devices
+% \item Extrapolated PDE using model, can predict PDE for new devices
+% \end{highlights}
+
+%% Keywords
+\begin{keyword}
+SiPM \sep silicon photomultiplier \sep photodetection efficiency \sep PDE \sep
+liquid nobles \sep argon \sep xenon \sep external crosstalk
+\end{keyword}
+\end{frontmatter}
+
+\input{1-Introduction}
+\input{2-Experimental_Methods}
+\input{3-PDE_Model}
+% \input{4-Fitting_and_Extrapolation}
+\input{4-fitting2}
+\input{4p5-validation}
+\input{5-Discussion}
+\input{6-Conclusion}
+
+%% For citations use: 
+%%       \citet{<label>} ==> Lamport [21]
+%%       \citep{<label>} ==> [21]
+%%       \cite{<label>} ==> [21]
+%%
+\bibliographystyle{elsarticle-num} 
+\bibliography{
+    zBib-opticalData,
+    zBib-SiPMs,
+    zBib-yield_siliconAndDevices,
+    zBib-siliconProperties,
+    zBib-nonSilicon,
+    zBib-physics_applications,
+    zBib-Quantum_and_FSO,
+    zBib-BSI_and_digital
+}
+
+
+\end{document}
+\endinput

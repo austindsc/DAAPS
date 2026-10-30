@@ -1,0 +1,46 @@
+## list branches
+git branch
+
+## list remote branches
+git branch -r
+
+## see status
+git status
+
+## remove a branch
+git branch -d <branch-name>
+
+
+----- workflow -----
+## updating to the freshest version of main
+git checkout main #(this overwrites anything you have done locally)
+git pull origin main
+
+## copy the project
+git clone <repository-url>
+
+## make a new branch
+git checkout -b <branch-name>
+
+## add your changes
+git add newStuff
+
+## add the first commit, to put your branch on the internet (remote)
+git commit -m "<commit-message>"
+
+## push to your branch online
+git push origin <branch-name>
+
+(you might have to do)
+git push --set-upstream origin <branch-name>
+
+## now do your normal workflow (over and over)
+git add newStuff
+git commit -m "<commit-message>"
+git push
+
+##
+when you think your current steps are done, you can go online and create
+a pull request. Then I can look at it, and merge it into main.
+
+

@@ -1,0 +1,33 @@
+\section{Introduction}
+\label{sec:introduction}
+\noindent This work develops a versatile model for the photon detection efficiency (PDE) of silicon photomultipliers (SiPMs), which can be applied across their full range of detectable wavelengths and varied operating conditions. SiPMs have superseded the photomultiplier tube in many physics applications due to benefits including lower operating voltage, radiopurity and compact size. Devices consist of a pixelated array of Single Photon Avalanche Diodes (SPADs), operated in Geiger mode, which produce a characteristic charge pulse in response to a detected photon. SiPMs are used to detect scintillation light from liquid Argon (LAr) and liquid Xenon (LXe) in current or future noble liquid experiments such as SBC, nEXO, Darkside-20K, DUNE, LEGEND and DARWIN/XLZD \cite{sbc_snowmass2021, adhikari_nexo_2021, carnesecchi_darkSide_light_2020, DUNE_updated, legend_result, baudis_darwinxlzd_2024}. A detailed understanding of wavelength and angle dependent PDE is essential for such applications. The model presented here describes SiPM PDE as a function of 5 variables: wavelength, incident angle, overvoltage, operating medium and temperature, with device specific parameters as model inputs. The inputs describe a simplified semiconductor junction structure, avalanche initiation probabilities, and surface optics characteristics, taking optical data from literature as fixed inputs. 
+
+Complete measurement of PDE across this 5-variable parameter space is experimentally challenging; a descriptive model allowing confident extrapolation will improve precision in detector simulations. LAr and LXe emit scintillation light about the VUV wavelengths of 127~nm \cite{fuji_lxe_2015} and 175~nm \cite{Heindl_LAr_2010} respectively, necessitating the use of newly-developed VUV-sensitive SiPMs \cite{baudis_characterisation_2018, gallina_characterization_2019-1, gallina_performance_2022}. In SiPMs the charge avalanche accompanying photon detection produces secondary long-wavelength photons which may escape the device. Measurements show a broad emission spectrum spanning approximately 550~nm into the infrared, with a broad angular distribution\cite{lolx_ext_2025} and an emission yield of order one photon per avalanche \cite{raymond_stimulated_TED_2024}. In a detector these emitted photons may trigger other SiPMs, a process known as external crosstalk (ExCT)\cite{lolx_ext_2025, hampel_optical_2020, joe_emission_2021}. ExCT is expected to be a contributing factor to the overall performance as it deteriorates energy resolution and mimics low occupancy events\cite{Gibbons_2024_flashlight}. As such a key motivation for this work is to accurately predict broadband PDE when submerged in various liquids, using limited angular and spectral vacuum measurements. The optical modeling can be reversed to describe ExCT photons emission, useful for transforming ExCT emission yield from vacuum to dense media \cite{lolx_ext_2025}.
+
+Beyond characterization, the model is intended as a design tool for optimizing SiPMs and single-pixel SPADs, as PDE can be enhanced by tuning optical transmission for particular wavelengths and operating media \autoref{sec:maximize}, as sensitivity to LAr scintillation remains limited in current-generation devices \cite{carnesecchi_darkSide_light_2020}. We explore how efficiencies exceeding 80\% at fixed wavelengths may be achieved for applications in quantum key distribution (QKD), which require efficient single-photon detectors with fast timing resolution \cite{liao_satellite--ground_2017, hadfield_single-photon_2009,ara_shawkat_single_2023}. Lastly, knowledge of avalanche production via electrons or holes informed by this work can inform expectations for dark counts and correlated avalanches in new devices.
+
+The devices studied in this work are two VUV-sensitive SiPMs, the Hamamatsu (HPK) VUV4 and the Fondazione Bruno Kessler (FBK) VUV-HD technology\footnote{This device is referred to as the `VUV-HD3' in other literature}, used in the SBC experiment \cite{sbc_snowmass2021, Herrera_vuv4_2024} and potentially others \cite{Borden_pdeTemp_2024, Wang_2021_cryo_sCurve}. Absolute PDE is measured from 350 to 830~nm at multiple overvoltages, limited by apparatus calibration. After fitting the model, PDE is extrapolated from 120 to 1050~nm and compared with reported VUV efficiencies. Detailed angular dependence of relative PDE is also studied as it pertains to detailed optical modeling, with device optimization explored last.
+
+\begin{table}[h!]
+\centering
+\caption{Basic characteristics of devices tested here.}\smallskip
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{1.3}  % Default is 1.0
+{\scriptsize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Device} &
+\makecell{\textbf{Fill Factor} \\ (\%)} &
+\makecell{\textbf{Pixel Pitch} \\ ($\um$)} &
+\makecell{\textbf{Area} \\ (mm$^2$)} &
+\makecell{\textbf{Breakdown Voltage} \\ \textbf{at 298~K}(V)} \\
+\hline
+\makecell{HPK VUV4\\S13371-6050CQ-02}    & 60 & 50 & $4\times (5.95 \times 5.85)$     & 52 \\
+FBK VUV-HD  & 80 & 35 & $5.96 \times 5.56$     & 31 \\
+\hline
+\end{tabular}
+}
+\label{tab:SiPM_parameters}
+\end{table}

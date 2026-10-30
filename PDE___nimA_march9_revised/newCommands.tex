@@ -1,0 +1,23 @@
+% \providecommand{\pcb}{P_{corr,B}}
+
+\providecommand{\tox}{t_{ox}}
+\providecommand{\sio}{\ce{SiO2}}
+\providecommand{\si}{\ce{Si}}
+
+%% Units
+\providecommand{\um}{\mu\text{m}}
+
+%%% table formatting control %%%
+% Adds space above text in a cell
+%% dont actually use these
+\newcommand{\cellpadup}[1]{\rule{0pt}{2ex}#1}
+
+\newcommand{\cellpaddown}[1]{#1\rule[-1ex]{0pt}{2ex}}
+
+\newcommand{\cellpad}[1]{\rule{0pt}{2mm} #1 \rule[-1ex]{0pt}{4ex}}
+
+\newcommand{\degree}{\ensuremath{^\circ}}
+
+% control the 'small' text used in a tablee from here. normalsize > small > footnotesize > scriptsize > tiny
+% small table text
+\newcommand{\stt}[1]{ {\footnotesize #1} } % make consistent with other tables

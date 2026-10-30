@@ -1,0 +1,7 @@
+"files.exclude": {
+    "veraData/": true,
+    "**/veraData/": true,
+    "**/opticsData/": true,
+    "**/literatureData/": true,
+    "**/.git": true
+}

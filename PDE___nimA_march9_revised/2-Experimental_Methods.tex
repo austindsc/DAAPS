@@ -1,0 +1,39 @@
+%% Need to show some data in here with figures, but still leave some 'true' data for the fitting section
+
+%% possible figures to include %%
+% it would be great if we show some of the analysis that gives the resulting PDE
+% - finger plot
+% - rate plot (unshadowing)
+% if you can export the plots to .csv i can format them to match my plots
+
+\section{Experimental setup and methodology}
+\label{sec:experimental}
+Measurements were taken using the Vacuum Efficiency Reflectivity and Absorption (VERA) setup at TRIUMF, which is described in detail in \cite{Lewis_2025_qy}. A deuterium continuum lamp is used in combination with a vacuum monochromator to provide illumination. A photodiode (Thorlabs FDS10X10) calibrated by NIST from 350 to 830~nm was used to measure the absolute photon flux of the lamp, with absolute efficiency measurements limited to this calibration range. Cooling is provided with liquid nitrogen circulated through a cold finger, with the temperature stability of $\pm 0.1$~K at the nominal measurement temperature of 163~K (LXe temperature). Current measurements were performed using a Keysight B2985A picoammeter. For waveform analysis, SiPM pulses were digitized using a custom-made transimpedance amplifier and CAEN DT5730 digitizer. Breakdown voltage was assessed using the peak of $d(\log{I})/dV$ from IV curve data. Angle of the sample is varied by a stepper motor within a range of motion of $-15^{\circ}$ to $60^{\circ}$ wrt to normal. PDE data is shown throughout \autoref{sec:fitting_the_model} with accompanying fits.
+
+\subsection{Absolute PDE}
+\label{sec:measuring_absolutePDE}
+The absolute PDE was measured for a range of wavelengths, angles of incidence and overvoltages. Using the adjustable pinhole of the optical collimator, the beam spot ($\leq$ 2~mm) was contained within the active area of the devices, except where otherwise noted. From pulse-counting rates, the light intensity was assessed too weak to cause saturation or non-linearity in device response. For each SiPM the absolute responsivity $R_{SiPM}$ was calculated by measuring the light induced photocurrent on the SiPM and the calibrated diode, as shown in equation \ref{eq:responsivity}. Dark current was subtracted for measurements performed at warmer temperatures.
+\begin{equation}
+    R_{SiPM}(\lambda) = \frac{I_{SiPM}(\lambda) - I_{D,SiPM}}{I_{Diode}(\lambda) - I_{D,Diode}} \cdot R_{diode}(\lambda)
+    \label{eq:responsivity}
+\end{equation}
+Linear responsivity is then converted to photon detection efficiency using equation \ref{eq:responsivitytoPDE}:
+\begin{equation}
+    PDE(\lambda) = \frac{R_{SiPM}(\lambda) \cdot E_{photon}(\lambda)}{Q_a} 
+    \label{eq:responsivitytoPDE}
+\end{equation}
+where $E_{photon}$ is the photon energy and $Q_a$ is the gross average charge per single photon detection event. $Q_a$ is the product of charge gain from a single photo-electron (SPE) pulse and the excess charge factor arising from correlated avalanches caused by after-pulsing and internal cross-talk. $Q_a$ is calculated by taking waveform-level data for a given SiPM and determining the rate of `primary' pulses using the method described in \cite{butcher_method_2017}. The SiPM DC current is then measured taken under the same operating conditions, and the current divided by the rate of primary pulses to yield $Q_a$. This measurement is repeated for various overvoltages $V_{ov}$ as $Q_a(V_{ov})$ increases non-linearly with voltage. Although $Q_a$ is not expected to vary with wavelength, measurements were taken in both the dark and under illumination at several wavelengths in order to corroborate the measured values, with uncertainty on $Q_a$ propagated through to the PDE. 
+
+\subsection{Angular dependence of PDE}
+\label{sec:measuring_relativePDE}
+The relative change in PDE with respect to angle was measured in order to probe the optical properties of device surfaces. The measurement is independent of excess charge factor and therefore was performed using only IV methods. It is also not restricted to the calibration range of the photodiode and was measured from 160 to 850~nm. The DC current at fixed wavelengths was normalized by current at normal incidence, after applying dark current subtraction on warm datasets.
+
+The MC width was varied between some runs. An optical pinhole of either 2~mm or 0.5~mm was used, with a larger pinhole giving higher photocurrent but a more limited range of incidence angles due to beam containment or blocking by device packaging. The maximum achievable angle for the VUV4 devices within VERA is between $30-50\degree$ and slightly higher for the FBK, depending on the pinhole size and exact SiPM positioning.
+
+The spread of wavelengths emitted from the monochromator (MC) is incorporated in the analysis by triangular convolution of the PDE function with respect to wavelength, as expected for the transfer function of a simple diffraction grating based MC. This treatment assumes the input spectrum is flat with respect to wavelength. Particularly at wavelengths near peaks in the lamp spectrum, this assumption is not valid and contributes to systematic uncertainties, which explain differences of results in \autoref{sec_fit:fbk_angular}. The mechanical slit controlling the MC FWHM was varied between 0.5-2~mm, with the wavelength scaling treated as a nuisance parameter in the analysis of the oscillatory FBK $PDE(\theta)$ data. This ellipsometric measurement increased the previous MC scaling value by 31\% to 5.9~nm/mm. The updated wavelength FWHM spans 3-12~nm.
+
+
+\subsection{Measuring electron avalanche triggering probability}
+\label{sec:pe_vs_temp}
+
+The probability that an electron reaching the high-field region of the SiPM will trigger an avalanche, $P_e$, can be measured independent of PDE using the method described in \cite{Lewis_2025_qy}, similar to \cite{Zappala_2016_efficiency}. UV light with sufficiently short absorption length is used to ensure that absorption and subsequent generation of carriers is localized to the p-doped region of the device, and only electron induced avalanches occur. The primary pulse rate under illumination (with dark rate subtracted) is measured at various overvoltages, and normalized by the rate at high overvoltage where $P_e$ is assumed to saturate to unity. This assumption is explicitly tested later in the analysis, driven by the expectation that impact ionization via electrons increases with applied voltage \cite{oldham_avalanche, mcintyre_microplasma, mcintyre_avalanche_1973}. Normalizing by the saturated rate yields $P_e(V)$ as all other PDE related variables are independent of $V_{ov}$. The wavelength condition for complete absorption can be verified by measuring the saturation of pulse rate with overvoltage \cite{gallina_avalanche_2019}, as the probability of hole driven avalanches $P_h(V)$ should not saturate within normal SiPM operating conditions. Preliminary measurements using 380~nm light measured $P_e(V)$ for the HPK device at temperatures from 163-253~K and FBK at 210~K, showing minimal temperature dependence.

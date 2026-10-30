@@ -1,0 +1,85 @@
+{
+    "HPK_VUV4": {
+        "default_sequential_420": {
+                "input_parameters": {
+                    "FF": 0.6,
+                    "tOxide": [16.84, 15.85, 19.59]
+                },
+                "fit_parameters": {
+                    "dp_star": [1.02, 0.24],
+                    "Xpn": [2418, 46],
+                    "dw_star": [14105, 725],
+                    "Ve": [1.82, 0.042],
+                    "Vh": [17.64, 1.07]
+                }
+        },
+        "default_global": {
+                "input_parameters": {
+                    "FF": 0.6,
+                    "tOxide": [17.2, 15.85, 19.7]
+                },
+                "fit_parameters": {
+                    "dp_star": [1.02, 0.24],
+                    "Xpn": [2342, 69],
+                    "dw_star": [13574, 760],
+                    "Ve": [1.789, 0.022],
+                    "Vh": [16.62, 1.20]
+                }
+        },
+        "franta_sequential_420": {
+                "input_parameters": {
+                    "FF": 0.6,
+                    "tOxide": [19.51, 17.62, 20.87]
+                },
+                "fit_parameters": {
+                    "dp_star": [0.49, 0.23],
+                    "Xpn": [3185, 112],
+                    "dw_star": [5845, 104],
+                    "Ve": [1.98, 0.04],
+                    "Vh": [5.13, 0.44]
+                }
+        },
+        "franta_global": {
+                "input_parameters": {
+                    "FF": 0.6,
+                    "tOxide": [19.51, 17.62, 20.87]
+                },
+                "fit_parameters": {
+                    "dp_star": [0.82, 0.23],
+                    "Xpn": [2675, 134],
+                    "dw_star": [5850, 98],
+                    "Ve": [1.83, 0.02],
+                    "Vh": [4.68, 0.33]
+                }
+        }
+    },
+    "FBK_LF": {
+        "default_global": {
+                "input_parameters": {
+                    "FF": 0.8
+                },
+                "fit_parameters": {
+                    "tOxide": [1358.6, 0.2],
+                    "dp_star": [0.96, 0.06],
+                    "Xpn": [520.5, 5],
+                    "dw_star": [8332, 132],
+                    "Ve": [1.83, 0.01],
+                    "Vh": [18.77, 0.27]
+                }
+        },
+        "franta_global": {
+                "input_parameters": {
+                    "FF": 0.8
+                },
+                "fit_parameters": {
+                    "tOxide": [1359.4, 0.4],
+                    "dp_star": [0.63, 0.06],
+                    "Xpn": [653.0, 14.4],
+                    "dw_star": [3825.60, 132],
+                    "Ve": [1.79, 0.013],
+                    "Vh": [8.5, 0.23]
+                }
+        }
+    }
+
+}

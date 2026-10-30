@@ -1,0 +1,11 @@
+*/__pycache__
+*/*/__pycache__/*
+
+PDE___Astro*/
+papers_temp/*
+
+.DS_Store
+*/.DS_Store
+*/*.DS_Store
+
+*.pyc
